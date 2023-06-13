@@ -52,8 +52,11 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(a, b) {
+  if (a === b) {
+    return a;
+  }
+  return (a + b) / 2;
 }
 
 /**
@@ -71,8 +74,10 @@ function getAverage(/* value1, value2 */) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  const num1 = (x2 - x1) ** 2;
+  const num2 = (y2 - y1) ** 2;
+  return Math.sqrt(num1 + num2);
 }
 
 /**
@@ -110,8 +115,12 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const dotProduct = x1 * x2 + y1 * y2;
+  const magnitude1 = Math.sqrt(x1 * x1 + y1 * y1);
+  const magnitude2 = Math.sqrt(x2 * x2 + y2 * y2);
+  const angleInRadians = Math.acos(dotProduct / (magnitude1 * magnitude2));
+  return angleInRadians;
 }
 
 /**
@@ -160,8 +169,8 @@ function parseNumberFromString(value) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(a, b, c) {
+  return Math.sqrt(a ** 2 + b ** 2 + c ** 2);
 }
 
 
