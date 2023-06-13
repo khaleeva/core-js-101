@@ -205,8 +205,21 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleString(width, height) {
+  const horizontalLine = '─';
+  const verticalLine = '│';
+  const leftTopCorner = '┌';
+  const rightTopCorner = '┐';
+  const leftBottomCorner = '└';
+  const rightBottomCorner = '┘';
+
+  const topLine = leftTopCorner + horizontalLine.repeat(width - 2) + rightTopCorner;
+  const middleLine = verticalLine + ' '.repeat(width - 2) + verticalLine;
+  const bottomLine = leftBottomCorner + horizontalLine.repeat(width - 2) + rightBottomCorner;
+  const rectangle = [topLine, ...Array(height - 2)
+    .fill(middleLine), bottomLine];
+
+  return `${rectangle.join('\n')}\n`;
 }
 
 
@@ -243,8 +256,8 @@ function encodeToRot13(/* str */) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  return value instanceof String || typeof value === 'string';
 }
 
 
