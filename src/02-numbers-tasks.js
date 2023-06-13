@@ -212,8 +212,19 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(num) {
+  if (num === 2 || num === 3) {
+    return true;
+  }
+  if (num <= 1 || num % 2 === 0 || num % 3 === 0) {
+    return false;
+  }
+  for (let i = 5; i * i <= num; i += 6) {
+    if (num % i === 0 || num % (i + 2) === 0) {
+      return false;
+    }
+  }
+  return true;
 }
 
 /**
@@ -234,7 +245,7 @@ function isPrime(/* n */) {
 function toNumber(value, def) {
   const number = Number(value);
   if (number instanceof Number || number) {
-    return value;
+    return number;
   }
   return def;
 }
